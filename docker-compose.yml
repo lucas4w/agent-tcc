@@ -1,0 +1,16 @@
+services:
+  agente:
+    build: .
+    image: agente_novosga:latest
+    container_name: agente_novosga
+    restart: unless-stopped
+    env_file:
+      - .env
+    networks:
+      - novosga-network
+
+
+networks:
+  novosga-network:
+    name: novosga_default
+    external: true
